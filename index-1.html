@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlinityCI.SaeedAlamri.lab | Training Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7a9e7e;
+    --sage-light: #a8c5a0;
+    --sage-dark: #4d7a52;
+    --mint: #c8e6c9;
+    --cream: #f9f6f0;
+    --warm-white: #fefcf8;
+    --leaf: #5a8a5e;
+    --moss: #3d6b41;
+    --fern: #8fb996;
+    --petal: #e8f5e9;
+    --clay: #8d6e63;
+    --gold: #c9a84c;
+    --text-dark: #2c3e2d;
+    --text-mid: #4a6741;
+    --text-light: #7a9e7e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(254,252,248,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(122,158,126,0.2);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--moss);
+    text-decoration: none;
+  }
+  .nav-logo .leaf-icon { font-size: 1.4rem; }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.88rem; font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sage-dark); }
+  .nav-cta {
+    background: var(--sage-dark);
+    color: white !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--moss) !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(168,197,160,0.35) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 80%, rgba(200,230,201,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(122,158,126,0.1) 0%, transparent 70%),
+      var(--cream);
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-leaves {
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'%3E%3Cellipse cx='400' cy='200' rx='180' ry='280' fill='%23a8c5a0' opacity='0.18' transform='rotate(-30 400 200)'/%3E%3Cellipse cx='480' cy='420' rx='120' ry='200' fill='%235a8a5e' opacity='0.12' transform='rotate(20 480 420)'/%3E%3Cellipse cx='320' cy='500' rx='90' ry='150' fill='%238fb996' opacity='0.15' transform='rotate(-10 320 500)'/%3E%3Ccircle cx='500' cy='100' r='60' fill='%23c8e6c9' opacity='0.25'/%3E%3Ccircle cx='200' cy='600' r='40' fill='%23a8c5a0' opacity='0.2'/%3E%3C/svg%3E") no-repeat center/cover;
+    pointer-events: none;
+  }
+  .hero-content { max-width: 600px; position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--petal);
+    border: 1px solid var(--sage-light);
+    color: var(--moss);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-title span { color: var(--sage-dark); }
+  .hero-desc {
+    font-size: 1.05rem; line-height: 1.75;
+    color: var(--text-mid);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+    max-width: 480px;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--sage-dark);
+    color: white; border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+    box-shadow: 0 4px 20px rgba(77,122,82,0.3);
+  }
+  .btn-primary:hover { background: var(--moss); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(77,122,82,0.4); }
+  .btn-outline {
+    background: transparent;
+    color: var(--sage-dark);
+    border: 2px solid var(--sage-light);
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { background: var(--petal); border-color: var(--sage-dark); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat { }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; color: var(--moss); font-weight: 700;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--text-light); font-weight: 500; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 5rem 4rem; }
+  .section-tag {
+    display: inline-block;
+    background: var(--petal);
+    color: var(--moss);
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--text-dark); margin-bottom: 0.8rem; line-height: 1.25;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--text-mid);
+    max-width: 540px; line-height: 1.7;
+  }
+
+  /* ─── OVERVIEW ─── */
+  #overview {
+    background: white;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .overview-img-wrap {
+    border-radius: 24px; overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(77,122,82,0.15);
+  }
+  .overview-img-wrap iframe {
+    width: 100%; height: 340px; border: none;
+  }
+  .overview-img-wrap .img-badge {
+    position: absolute; bottom: 16px; left: 16px;
+    background: rgba(255,255,255,0.93);
+    backdrop-filter: blur(8px);
+    border-radius: 12px; padding: 0.6rem 1rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--moss);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .overview-features { margin-top: 2rem; }
+  .feature-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    margin-bottom: 1.4rem;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--mint);
+    background: var(--petal);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .feature-item:hover { background: var(--mint); transform: translateX(4px); }
+  .feature-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .feature-text h4 { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); }
+  .feature-text p { font-size: 0.82rem; color: var(--text-mid); margin-top: 2px; }
+
+  /* ─── CURRICULUM ─── */
+  #curriculum {
+    background: var(--cream);
+  }
+  .curriculum-header { text-align: center; margin-bottom: 3.5rem; }
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .module-card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(122,158,126,0.2);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .module-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(77,122,82,0.15); }
+  .module-header {
+    padding: 1.4rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .module-num {
+    width: 44px; height: 44px;
+    background: var(--sage-dark);
+    color: white;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; flex-shrink: 0;
+  }
+  .module-title { font-size: 1rem; font-weight: 600; color: var(--text-dark); }
+  .module-meta { font-size: 0.78rem; color: var(--text-light); margin-top: 2px; }
+  .module-body { padding: 0 1.5rem 1.5rem; }
+  .subtopics { list-style: none; }
+  .subtopics li {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.84rem; color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 4px;
+  }
+  .subtopics li:hover { background: var(--petal); color: var(--moss); }
+  .subtopics li .dot {
+    width: 6px; height: 6px;
+    background: var(--sage-light); border-radius: 50%; flex-shrink: 0;
+  }
+  .subtopics li:hover .dot { background: var(--sage-dark); }
+  .module-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--mint);
+    display: flex; gap: 0.6rem; flex-wrap: wrap;
+  }
+  .tag {
+    background: var(--petal);
+    color: var(--sage-dark);
+    font-size: 0.72rem; font-weight: 600;
+    padding: 0.25rem 0.7rem; border-radius: 50px;
+  }
+
+  /* ─── LESSON VIEWER ─── */
+  #lesson-viewer {
+    background: white;
+    display: none;
+    padding: 4rem;
+  }
+  #lesson-viewer.active { display: block; }
+  .viewer-breadcrumb {
+    font-size: 0.82rem; color: var(--text-light);
+    margin-bottom: 2rem;
+  }
+  .viewer-breadcrumb span { color: var(--sage-dark); font-weight: 600; }
+  .viewer-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .viewer-sidebar {
+    background: var(--petal);
+    border-radius: 18px;
+    padding: 1.5rem;
+    position: sticky; top: 90px;
+  }
+  .sidebar-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--moss); margin-bottom: 1rem; }
+  .sidebar-item {
+    padding: 0.65rem 0.9rem;
+    border-radius: 10px;
+    font-size: 0.85rem; color: var(--text-mid);
+    cursor: pointer; transition: all 0.2s;
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .sidebar-item:hover, .sidebar-item.active { background: var(--sage-dark); color: white; }
+  .sidebar-item.active .s-dot { background: white; }
+  .s-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage-light); flex-shrink: 0; }
+  .viewer-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: var(--text-dark); margin-bottom: 0.5rem;
+  }
+  .viewer-content .lesson-meta {
+    font-size: 0.82rem; color: var(--text-light); margin-bottom: 2rem;
+  }
+  .lesson-video {
+    border-radius: 18px; overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(77,122,82,0.12);
+  }
+  .lesson-video iframe { width: 100%; height: 400px; border: none; display: block; }
+  .lesson-text { font-size: 0.95rem; line-height: 1.8; color: var(--text-mid); }
+  .lesson-text h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); margin: 1.5rem 0 0.5rem; }
+  .lesson-text ul { padding-left: 1.2rem; margin: 0.5rem 0 1rem; }
+  .lesson-text li { margin-bottom: 0.4rem; }
+  .lesson-nav-btns { display: flex; gap: 1rem; margin-top: 2.5rem; }
+  .info-box {
+    background: var(--petal);
+    border-left: 4px solid var(--sage-dark);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.3rem;
+    margin: 1.2rem 0;
+    font-size: 0.88rem; color: var(--text-mid);
+  }
+  .info-box strong { color: var(--moss); }
+
+  /* ─── GALLERY ─── */
+  #gallery {
+    background: var(--petal);
+  }
+  .gallery-header { text-align: center; margin-bottom: 3rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+  .gallery-item {
+    border-radius: 16px; overflow: hidden;
+    background: var(--mint);
+    position: relative;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/9; }
+  .gallery-item:hover { transform: scale(1.02); box-shadow: 0 12px 36px rgba(77,122,82,0.2); }
+  .gallery-item .gallery-label {
+    position: absolute; bottom: 10px; left: 12px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 8px; padding: 0.3rem 0.7rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--moss);
+  }
+  .gallery-item iframe { width: 100%; height: 100%; border: none; }
+
+  /* ─── QUIZ ─── */
+  #quiz {
+    background: var(--sage-dark);
+    color: white;
+    text-align: center;
+  }
+  #quiz .section-tag { background: rgba(255,255,255,0.15); color: white; }
+  #quiz .section-title { color: white; }
+  #quiz .section-sub { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto 2.5rem; }
+  .quiz-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .quiz-q { font-size: 1.05rem; font-weight: 600; margin-bottom: 1.5rem; }
+  .quiz-options { display: flex; flex-direction: column; gap: 0.8rem; }
+  .quiz-opt {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 0.9rem 1.2rem;
+    cursor: pointer; transition: all 0.2s;
+    font-size: 0.9rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .quiz-opt:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
+  .quiz-opt.correct { background: rgba(200,230,201,0.3); border-color: var(--mint); }
+  .quiz-opt.wrong { background: rgba(255,100,100,0.2); border-color: rgba(255,150,150,0.5); }
+  .opt-letter {
+    width: 28px; height: 28px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0;
+  }
+  .quiz-feedback { margin-top: 1.5rem; font-size: 0.9rem; color: var(--mint); display: none; }
+  .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+  .quiz-progress { font-size: 0.82rem; opacity: 0.65; }
+
+  /* ─── RESOURCES ─── */
+  #resources { background: white; }
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem; margin-top: 2.5rem;
+  }
+  .resource-card {
+    border: 1.5px solid var(--mint);
+    border-radius: 16px; padding: 1.5rem;
+    transition: all 0.25s; cursor: pointer;
+    text-decoration: none; color: inherit;
+    display: block;
+  }
+  .resource-card:hover { border-color: var(--sage-dark); background: var(--petal); transform: translateY(-3px); }
+  .resource-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .resource-title { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.3rem; }
+  .resource-desc { font-size: 0.8rem; color: var(--text-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+  footer h4 { color: white; margin-bottom: 1rem; font-size: 0.9rem; font-family: 'Playfair Display', serif; }
+  footer p, footer a { font-size: 0.82rem; line-height: 1.8; color: rgba(255,255,255,0.6); text-decoration: none; display: block; }
+  footer a:hover { color: var(--sage-light); }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: white; margin-bottom: 0.5rem; }
+  .footer-copy {
+    background: rgba(0,0,0,0.2); text-align: center;
+    padding: 1.2rem; font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar-wrap {
+    background: var(--mint); border-radius: 50px;
+    height: 6px; margin-top: 1rem;
+  }
+  .progress-bar-fill {
+    height: 100%; background: var(--sage-dark);
+    border-radius: 50px; width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    section { padding: 3.5rem 1.5rem; }
+    #overview { grid-template-columns: 1fr; gap: 2.5rem; }
+    .viewer-layout { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:nth-child(1) { grid-column: span 2; }
+    footer { grid-template-columns: 1fr; gap: 1.5rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <span class="leaf-icon">🌿</span>
+    Alinity ci Academy
+    <span style="font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:600;background:var(--petal);color:var(--moss);border:1px solid var(--sage-light);padding:0.18rem 0.6rem;border-radius:50px;margin-left:6px;letter-spacing:0.04em;">AlinityCI.SaeedAlamri.lab</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#gallery">Media</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#curriculum" class="nav-cta">Start Learning</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-leaves"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌱 Professional Lab Training Program</div>
+    <div style="font-size:0.72rem;color:var(--text-light);margin-top:-0.5rem;margin-bottom:1rem;margin-left:2px;font-weight:500;letter-spacing:0.03em;">By Saeed Alamri</div>
+    <h1 class="hero-title">
+      Master the Abbott<br><span>Alinity c & i</span><br>Analyzers
+    </h1>
+    <p class="hero-desc">
+      A comprehensive, structured training course covering clinical chemistry, immunoassay, instrument operation, QC, troubleshooting, and maintenance — designed for laboratory specialists.
+    </p>
+    <div class="hero-btns">
+      <a href="#curriculum" class="btn-primary">Begin the Course →</a>
+      <a href="#overview" class="btn-outline">View Overview</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Core Modules</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Sub-topics</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="overview-img-wrap fade-up">
+    <iframe
+      src="https://www.youtube.com/embed/xTh_bF9hRx0?rel=0&modestbranding=1"
+      title="Abbott Alinity Overview"
+      allowfullscreen>
+    </iframe>
+    <div class="img-badge">🎬 Abbott Official Introduction</div>
+  </div>
+  <div class="fade-up">
+    <span class="section-tag">About This Course</span>
+    <h2 class="section-title">Why Train on the Alinity ci Platform?</h2>
+    <p class="section-sub">The Alinity c and i are Abbott's flagship analyzers for clinical chemistry and immunoassay. This course equips you with everything needed for confident, safe, and efficient operation.</p>
+    <div class="overview-features">
+      <div class="feature-item">
+        <span class="feature-icon">🔬</span>
+        <div class="feature-text">
+          <h4>Clinical Chemistry (Alinity c)</h4>
+          <p>Metabolites, enzymes, lipids, proteins, electrolytes & special chemistry panels</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💉</span>
+        <div class="feature-text">
+          <h4>Immunoassay (Alinity i)</h4>
+          <p>Chemiluminescent microparticle immunoassay (CMIA) for hormones, cardiac markers & infectious disease</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⚙️</span>
+        <div class="feature-text">
+          <h4>Middleware & Connectivity</h4>
+          <p>LIS integration, result validation, reflex testing and data management</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🛡️</span>
+        <div class="feature-text">
+          <h4>Quality Control & Safety</h4>
+          <p>Westgard rules, Levey-Jennings charts, calibration workflows and biosafety</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="curriculum-header fade-up">
+    <span class="section-tag">Curriculum</span>
+    <h2 class="section-title">Course Modules</h2>
+    <p class="section-sub" style="margin:0 auto;">Click any module or sub-topic button to open the lesson viewer below.</p>
+  </div>
+  <div class="modules-grid">
+
+    <!-- MODULE 1 -->
+    <div class="module-card fade-up" onclick="openModule(1)">
+      <div class="module-header">
+        <div class="module-num">1</div>
+        <div>
+          <div class="module-title">Instrument Overview & System Architecture</div>
+          <div class="module-meta">⏱ 45 min · Beginner</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,1,0)"><span class="dot"></span>Alinity c vs Alinity i — Key Differences</li>
+          <li onclick="openLesson(event,1,1)"><span class="dot"></span>Hardware Components Walkthrough</li>
+          <li onclick="openLesson(event,1,2)"><span class="dot"></span>Sample Path & Reagent Flow</li>
+          <li onclick="openLesson(event,1,3)"><span class="dot"></span>User Interface & Navigation</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog1"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">Foundation</span><span class="tag">Hardware</span>
+      </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="module-card fade-up" onclick="openModule(2)">
+      <div class="module-header">
+        <div class="module-num">2</div>
+        <div>
+          <div class="module-title">Startup, Shutdown & Daily Operations</div>
+          <div class="module-meta">⏱ 50 min · Beginner</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,2,0)"><span class="dot"></span>Pre-Startup Checklist</li>
+          <li onclick="openLesson(event,2,1)"><span class="dot"></span>Startup Sequence — Step by Step</li>
+          <li onclick="openLesson(event,2,2)"><span class="dot"></span>Shutdown & End-of-Day Procedure</li>
+          <li onclick="openLesson(event,2,3)"><span class="dot"></span>Emergency Stop Protocol</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog2"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">Operations</span><span class="tag">Safety</span>
+      </div>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="module-card fade-up" onclick="openModule(3)">
+      <div class="module-header">
+        <div class="module-num">3</div>
+        <div>
+          <div class="module-title">Sample Handling & Processing</div>
+          <div class="module-meta">⏱ 55 min · Intermediate</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,3,0)"><span class="dot"></span>Specimen Types & Tube Requirements</li>
+          <li onclick="openLesson(event,3,1)"><span class="dot"></span>Sample Loading & Rack System</li>
+          <li onclick="openLesson(event,3,2)"><span class="dot"></span>Stat vs Routine Priorities</li>
+          <li onclick="openLesson(event,3,3)"><span class="dot"></span>Manual Dilution Techniques</li>
+          <li onclick="openLesson(event,3,4)"><span class="dot"></span>Hemolysis, Icterus & Lipemia (HIL)</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog3"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">Pre-analytics</span><span class="tag">Specimen</span>
+      </div>
+    </div>
+
+    <!-- MODULE 4 -->
+    <div class="module-card fade-up" onclick="openModule(4)">
+      <div class="module-header">
+        <div class="module-num">4</div>
+        <div>
+          <div class="module-title">Reagent Management & Calibration</div>
+          <div class="module-meta">⏱ 60 min · Intermediate</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,4,0)"><span class="dot"></span>Loading & Tracking Reagents</li>
+          <li onclick="openLesson(event,4,1)"><span class="dot"></span>Calibration Principles & Frequency</li>
+          <li onclick="openLesson(event,4,2)"><span class="dot"></span>Multi-point Calibration Curves</li>
+          <li onclick="openLesson(event,4,3)"><span class="dot"></span>Reagent Expiry & Storage</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog4"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">Calibration</span><span class="tag">Reagents</span>
+      </div>
+    </div>
+
+    <!-- MODULE 5 -->
+    <div class="module-card fade-up" onclick="openModule(5)">
+      <div class="module-header">
+        <div class="module-num">5</div>
+        <div>
+          <div class="module-title">Quality Control (QC)</div>
+          <div class="module-meta">⏱ 70 min · Intermediate</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,5,0)"><span class="dot"></span>QC Principles & Westgard Rules</li>
+          <li onclick="openLesson(event,5,1)"><span class="dot"></span>Levey-Jennings Charts</li>
+          <li onclick="openLesson(event,5,2)"><span class="dot"></span>Setting QC Ranges & Targets</li>
+          <li onclick="openLesson(event,5,3)"><span class="dot"></span>QC Failure Investigation</li>
+          <li onclick="openLesson(event,5,4)"><span class="dot"></span>Proficiency Testing (PT)</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog5"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">QC</span><span class="tag">Accuracy</span>
+      </div>
+    </div>
+
+    <!-- MODULE 6 -->
+    <div class="module-card fade-up" onclick="openModule(6)">
+      <div class="module-header">
+        <div class="module-num">6</div>
+        <div>
+          <div class="module-title">Result Validation & LIS Integration</div>
+          <div class="module-meta">⏱ 50 min · Intermediate</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,6,0)"><span class="dot"></span>Auto-Validation Rules</li>
+          <li onclick="openLesson(event,6,1)"><span class="dot"></span>Delta Checks & Critical Values</li>
+          <li onclick="openLesson(event,6,2)"><span class="dot"></span>LIS Connectivity & HL7</li>
+          <li onclick="openLesson(event,6,3)"><span class="dot"></span>Reflex Testing Setup</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog6"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">LIS</span><span class="tag">Validation</span>
+      </div>
+    </div>
+
+    <!-- MODULE 7 -->
+    <div class="module-card fade-up" onclick="openModule(7)">
+      <div class="module-header">
+        <div class="module-num">7</div>
+        <div>
+          <div class="module-title">Troubleshooting & Error Codes</div>
+          <div class="module-meta">⏱ 75 min · Advanced</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,7,0)"><span class="dot"></span>Understanding Alarm Levels</li>
+          <li onclick="openLesson(event,7,1)"><span class="dot"></span>Common Chemistry Errors</li>
+          <li onclick="openLesson(event,7,2)"><span class="dot"></span>Common Immunoassay Errors</li>
+          <li onclick="openLesson(event,7,3)"><span class="dot"></span>Probe & Pipette Issues</li>
+          <li onclick="openLesson(event,7,4)"><span class="dot"></span>Clot Detection & Recovery</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog7"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">Troubleshooting</span><span class="tag">Advanced</span>
+      </div>
+    </div>
+
+    <!-- MODULE 8 -->
+    <div class="module-card fade-up" onclick="openModule(8)">
+      <div class="module-header">
+        <div class="module-num">8</div>
+        <div>
+          <div class="module-title">Maintenance & Preventive Care</div>
+          <div class="module-meta">⏱ 65 min · Advanced</div>
+        </div>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          <li onclick="openLesson(event,8,0)"><span class="dot"></span>Daily Maintenance Tasks</li>
+          <li onclick="openLesson(event,8,1)"><span class="dot"></span>Weekly & Monthly PM</li>
+          <li onclick="openLesson(event,8,2)"><span class="dot"></span>Probe Cleaning & Replacement</li>
+          <li onclick="openLesson(event,8,3)"><span class="dot"></span>Waste Management & Decontamination</li>
+        </ul>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog8"></div></div>
+      </div>
+      <div class="module-footer">
+        <span class="tag">Maintenance</span><span class="tag">PM</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LESSON VIEWER -->
+<section id="lesson-viewer">
+  <div class="viewer-breadcrumb">
+    Course → <span id="viewer-module-name">Module 1</span> → <span id="viewer-lesson-name">Introduction</span>
+  </div>
+  <div class="viewer-layout">
+    <div class="viewer-sidebar">
+      <div class="sidebar-title">Module Topics</div>
+      <div id="sidebar-items"></div>
+    </div>
+    <div class="viewer-content">
+      <h2 id="lesson-title">Lesson Title</h2>
+      <div class="lesson-meta" id="lesson-meta">Duration · Level</div>
+      <div class="lesson-video" id="lesson-video-wrap">
+        <iframe id="lesson-iframe" src="" allowfullscreen title="Lesson Video"></iframe>
+      </div>
+      <div class="lesson-text" id="lesson-text"></div>
+      <div class="lesson-nav-btns">
+        <button class="btn-outline" onclick="prevLesson()">← Previous</button>
+        <button class="btn-primary" onclick="nextLesson()">Next Lesson →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / MEDIA -->
+<section id="gallery">
+  <div class="gallery-header fade-up">
+    <span class="section-tag">Media Library</span>
+    <h2 class="section-title">Videos & Visual References</h2>
+    <p class="section-sub" style="margin:0 auto 2rem;">Curated videos for each major analyzer workflow.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item fade-up" style="background:#dcedc8;">
+      <iframe src="https://www.youtube.com/embed/ShMvDHZVPrM?rel=0&modestbranding=1" allowfullscreen title="Alinity Full Training"></iframe>
+      <div class="gallery-label">🎬 Alinity System Intro</div>
+    </div>
+    <div class="gallery-item fade-up" style="background:#c8e6c9; flex-direction:column; gap:0.5rem;">
+      <span>🧪</span>
+      <div class="gallery-label">Chemistry Principles</div>
+    </div>
+    <div class="gallery-item fade-up" style="background:#b2dfdb; flex-direction:column;">
+      <span>💡</span>
+      <div class="gallery-label">CMIA Technology</div>
+    </div>
+    <div class="gallery-item fade-up" style="background:#dcedc8; flex-direction:column;">
+      <span>⚗️</span>
+      <div class="gallery-label">Calibration Demo</div>
+    </div>
+    <div class="gallery-item fade-up" style="background:#f1f8e9; flex-direction:column;">
+      <span>🛠️</span>
+      <div class="gallery-label">Maintenance Guide</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <span class="section-tag">Knowledge Check</span>
+  <h2 class="section-title">Test Your Understanding</h2>
+  <p class="section-sub">Answer questions after each module to reinforce your learning.</p>
+  <div class="quiz-card">
+    <div class="quiz-q" id="quiz-q">Loading question...</div>
+    <div class="quiz-options" id="quiz-opts"></div>
+    <div class="quiz-feedback" id="quiz-fb"></div>
+    <div class="quiz-nav">
+      <div class="quiz-progress" id="quiz-prog">Question 1 of 6</div>
+      <button class="btn-primary" onclick="nextQuestion()" style="font-size:0.85rem;padding:0.6rem 1.4rem;">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="fade-up">
+    <span class="section-tag">Resources</span>
+    <h2 class="section-title">Reference Materials</h2>
+    <p class="section-sub">Downloadable documents and links to support your training.</p>
+  </div>
+  <div class="resources-grid">
+    <a href="#" class="resource-card fade-up">
+      <div class="resource-icon">📋</div>
+      <div class="resource-title">Operator Manual Summary</div>
+      <div class="resource-desc">Key pages from the official Alinity c/i operator manual</div>
+    </a>
+    <a href="#" class="resource-card fade-up">
+      <div class="resource-icon">📊</div>
+      <div class="resource-title">QC Log Template</div>
+      <div class="resource-desc">Excel/PDF template for daily QC documentation</div>
+    </a>
+    <a href="#" class="resource-card fade-up">
+      <div class="resource-icon">🧾</div>
+      <div class="resource-title">Startup Checklist</div>
+      <div class="resource-desc">Printable daily startup & shutdown checklist</div>
+    </a>
+    <a href="#" class="resource-card fade-up">
+      <div class="resource-icon">⚠️</div>
+      <div class="resource-title">Error Code Reference</div>
+      <div class="resource-desc">Quick-reference guide for common Alinity alarms</div>
+    </a>
+    <a href="#" class="resource-card fade-up">
+      <div class="resource-icon">📐</div>
+      <div class="resource-title">Westgard Rules Card</div>
+      <div class="resource-desc">Pocket reference for multi-rule QC interpretation</div>
+    </a>
+    <a href="#" class="resource-card fade-up">
+      <div class="resource-icon">🌐</div>
+      <div class="resource-title">Abbott Official Site</div>
+      <div class="resource-desc">abbott.com — latest product documentation</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">🌿 Alinity ci Academy</div>
+    <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;margin-bottom:0.4rem;">alinityci.saeedalamri.lab</p>
+    <p>A professional training course for laboratory specialists operating Abbott Alinity c & i analyzers.</p>
+    <p style="margin-top:0.8rem;">Saudi German Health — Core Laboratory, Makkah Branch</p>
+    <p style="margin-top:0.6rem;color:rgba(255,255,255,0.45);font-size:0.75rem;">Designed & Authored by <strong style="color:var(--sage-light)">Saeed Raffe Alamri</strong></p>
+  </div>
+  <div>
+    <h4>Quick Links</h4>
+    <a href="#overview">Course Overview</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#gallery">Media Library</a>
+    <a href="#quiz">Knowledge Quiz</a>
+    <a href="#resources">Resources</a>
+  </div>
+  <div>
+    <h4>Modules</h4>
+    <a href="#curriculum">1. Instrument Overview</a>
+    <a href="#curriculum">2. Daily Operations</a>
+    <a href="#curriculum">3. Sample Handling</a>
+    <a href="#curriculum">4. Calibration</a>
+    <a href="#curriculum">5. Quality Control</a>
+    <a href="#curriculum">6. LIS Integration</a>
+    <a href="#curriculum">7. Troubleshooting</a>
+    <a href="#curriculum">8. Maintenance</a>
+  </div>
+</footer>
+<div class="footer-copy">© 2026 <strong style="color:rgba(255,255,255,0.7)">Saeed Raffe Alamri</strong> — AlinityCI.SaeedAlamri.lab · All Rights Reserved · Developed for Laboratory Specialist Training</div>
+
+<script>
+// ─── MODULE DATA ───
+const modules = {
+  1: {
+    name: "Instrument Overview & System Architecture",
+    lessons: [
+      {
+        title: "Alinity c vs Alinity i — Key Differences",
+        meta: "12 min · Beginner",
+        video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0",
+        text: `
+          <h3>Understanding the Two Platforms</h3>
+          <p>The Abbott Alinity platform comprises two complementary analyzers designed to work together in the modern core laboratory. The <strong>Alinity c</strong> handles clinical chemistry — measuring metabolites, enzymes, lipids, and electrolytes using photometric and potentiometric methods. The <strong>Alinity i</strong> performs immunoassays using Chemiluminescent Microparticle Immunoassay (CMIA) technology for hormones, cardiac markers, infectious disease, and therapeutic drug monitoring.</p>
+          <div class="info-box"><strong>Key Insight:</strong> Both systems share the same reagent carousel design philosophy, reducing training time when cross-learning the platforms.</div>
+          <h3>Core Technology Comparison</h3>
+          <ul>
+            <li><strong>Alinity c:</strong> Photometry, ion-selective electrodes (ISE), turbidimetry</li>
+            <li><strong>Alinity i:</strong> CMIA — antigen-antibody reactions detected via luminescence</li>
+            <li>Both: Random-access processing, continuous loading, onboard reagent refrigeration</li>
+          </ul>
+          <h3>Throughput Specifications</h3>
+          <ul>
+            <li>Alinity c: up to 1,000 photometric tests/hour</li>
+            <li>Alinity i: up to 200 tests/hour depending on assay</li>
+            <li>Combined ci system: bidirectional LIS communication</li>
+          </ul>
+        `
+      },
+      {
+        title: "Hardware Components Walkthrough",
+        meta: "10 min · Beginner",
+        video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0",
+        text: `
+          <h3>Main Hardware Zones</h3>
+          <p>The Alinity analyzers are organized into logical zones that you will navigate daily. Understanding each zone is essential for efficient operation and rapid troubleshooting.</p>
+          <ul>
+            <li><strong>Sample Loading Zone:</strong> Where racks and tubes are introduced to the system</li>
+            <li><strong>Reagent Carousel:</strong> Refrigerated storage for up to 80+ reagent positions</li>
+            <li><strong>Reaction Cuvette Zone:</strong> Incubation and measurement occur here</li>
+            <li><strong>ISE Module (Alinity c):</strong> Dedicated module for Na, K, Cl electrolytes</li>
+            <li><strong>Wash Station:</strong> Automated probe and cuvette washing</li>
+          </ul>
+          <div class="info-box"><strong>Safety Note:</strong> Never reach into the instrument during operation. Always use the instrument pause function before accessing internal zones.</div>
+        `
+      },
+      {
+        title: "Sample Path & Reagent Flow",
+        meta: "11 min · Beginner",
+        video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0",
+        text: `
+          <h3>The Journey of a Sample</h3>
+          <p>From the moment a tube is loaded, the Alinity system orchestrates a precisely timed sequence:</p>
+          <ul>
+            <li>Barcode read → patient ID linked to ordered tests</li>
+            <li>Sample probe aspirates the required volume per assay</li>
+            <li>Reagent is dispensed into the reaction cuvette</li>
+            <li>Incubation at 37°C for specified time</li>
+            <li>Measurement (absorbance or luminescence)</li>
+            <li>Result transmitted to LIS</li>
+          </ul>
+          <div class="info-box"><strong>Did You Know?</strong> The Alinity c can process STAT samples without interrupting routine run sequences.</div>
+        `
+      },
+      {
+        title: "User Interface & Navigation",
+        meta: "8 min · Beginner",
+        video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0",
+        text: `
+          <h3>Software Overview</h3>
+          <p>The Alinity software uses a touch-screen interface with a consistent layout across both platforms. Key screens include:</p>
+          <ul>
+            <li><strong>Home/Status Screen:</strong> System health overview and active alarms</li>
+            <li><strong>Sample Manager:</strong> View pending, in-progress, and completed samples</li>
+            <li><strong>Reagent Manager:</strong> Inventory, expiry, and lot tracking</li>
+            <li><strong>QC Screen:</strong> Run and review quality control data</li>
+            <li><strong>Maintenance Screen:</strong> Scheduled and on-demand maintenance tasks</li>
+          </ul>
+        `
+      }
+    ]
+  },
+  2: {
+    name: "Startup, Shutdown & Daily Operations",
+    lessons: [
+      { title: "Pre-Startup Checklist", meta: "10 min · Beginner", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Before Powering On</h3><p>A systematic pre-startup check prevents errors and downtime. Complete these steps every morning before initiating the startup sequence:</p><ul><li>Verify wash solution levels (SWAB, System Fluid)</li><li>Check waste containers — empty if >80% full</li><li>Inspect sample probes visually for damage</li><li>Confirm reagent inventory matches daily workload</li><li>Check water quality (deionized water conductivity)</li></ul><div class='info-box'><strong>Best Practice:</strong> Keep a printed checklist at the workstation and initial it daily for documentation.</div>" },
+      { title: "Startup Sequence — Step by Step", meta: "15 min · Beginner", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Initiating Startup</h3><p>The Alinity startup is semi-automated but requires monitoring. Follow this sequence:</p><ul><li>Power on the system from the main switch</li><li>Log in with your operator credentials</li><li>Select <em>Startup</em> from the Home screen</li><li>Monitor automatic priming and probe conditioning</li><li>Run QC after startup is complete before patient testing</li></ul>" },
+      { title: "Shutdown & End-of-Day Procedure", meta: "10 min · Beginner", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Proper Shutdown Steps</h3><p>Proper shutdown maintains system integrity overnight:</p><ul><li>Ensure all samples have been processed</li><li>Run the automated shutdown sequence</li><li>Remove and store temperature-sensitive reagents if required</li><li>Empty and decontaminate waste containers</li><li>Document shutdown in the maintenance log</li></ul>" },
+      { title: "Emergency Stop Protocol", meta: "8 min · Beginner", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>When to Use Emergency Stop</h3><p>The red E-Stop button should only be used in genuine emergencies (spillage, mechanical jam, safety hazard). After an E-Stop:</p><ul><li>Do not restart immediately</li><li>Assess the cause of the emergency</li><li>Follow the post-emergency recovery procedure in the manual</li><li>Notify the supervisor and document the incident</li></ul><div class='info-box'><strong>Warning:</strong> Frequent E-Stop use can cause cuvette contamination and require a full re-initialization.</div>" }
+    ]
+  },
+  3: {
+    name: "Sample Handling & Processing",
+    lessons: [
+      { title: "Specimen Types & Tube Requirements", meta: "12 min · Intermediate", video: "https://www.youtube.com/embed/7K0pENtnRdg?rel=0", text: "<h3>Accepted Specimen Types</h3><p>The Alinity system accepts serum, plasma, urine, CSF, and other body fluids depending on assay requirements:</p><ul><li><strong>Serum (SST/Gold top):</strong> Most chemistry panels; must be fully clotted and centrifuged</li><li><strong>EDTA Plasma (Purple top):</strong> Some immunoassay panels</li><li><strong>Lithium Heparin (Green top):</strong> STAT chemistry panels</li><li><strong>Urine:</strong> Protein, creatinine, microalbumin assays</li></ul><div class='info-box'><strong>Reminder:</strong> Always check the assay-specific requirements in the package insert before using an alternate tube type.</div>" },
+      { title: "Sample Loading & Rack System", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/7K0pENtnRdg?rel=0", text: "<h3>Loading Samples Correctly</h3><p>Samples are loaded in racks that hold 5 or 10 tubes. Ensure barcodes face outward and tubes are seated firmly. The system reads barcodes as racks advance through the loading zone.</p>" },
+      { title: "Stat vs Routine Priorities", meta: "8 min · Intermediate", video: "https://www.youtube.com/embed/7K0pENtnRdg?rel=0", text: "<h3>STAT Sample Handling</h3><p>STAT samples are flagged in the LIS and processed with priority. Load STAT racks in the designated STAT lane. The system will interrupt routine sequencing to process STAT orders without losing data.</p>" },
+      { title: "Manual Dilution Techniques", meta: "12 min · Intermediate", video: "https://www.youtube.com/embed/7K0pENtnRdg?rel=0", text: "<h3>When Manual Dilution is Required</h3><p>When analyte results exceed the upper limit of the reportable range, a manual dilution must be performed. Use the correct diluent (saline or instrument diluent) and document the dilution factor. Multiply the result by the dilution factor to report the final value.</p><div class='info-box'><strong>Example:</strong> If glucose >900 mg/dL, dilute 1:2 with saline. If result = 480, report 960 mg/dL.</div>" },
+      { title: "Hemolysis, Icterus & Lipemia (HIL)", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/7K0pENtnRdg?rel=0", text: "<h3>HIL Detection</h3><p>The Alinity c has onboard serum indices (HIL check). Samples flagged for hemolysis, icterus, or lipemia will display index values. Review assay-specific interference thresholds and add appropriate comments before releasing results.</p>" }
+    ]
+  },
+  4: { name: "Reagent Management & Calibration", lessons: [
+    { title: "Loading & Tracking Reagents", meta: "14 min · Intermediate", video: "https://www.youtube.com/embed/v9XtahZBBDQ?rel=0", text: "<h3>Reagent Loading</h3><p>Reagents are loaded into the refrigerated carousel. Scan the barcode on each reagent pack — the system registers lot number, expiry, and remaining tests. Reagents can be loaded on-the-fly without stopping the analyzer.</p><div class='info-box'><strong>Tip:</strong> Set minimum stock alerts in the reagent manager to avoid running out mid-shift.</div>" },
+    { title: "Calibration Principles & Frequency", meta: "12 min · Intermediate", video: "https://www.youtube.com/embed/v9XtahZBBDQ?rel=0", text: "<h3>Why Calibrate?</h3><p>Calibration establishes the mathematical relationship between instrument signal and analyte concentration. Calibration is triggered by: new lot number, reagent replacement, major maintenance, QC failure, or per manufacturer schedule.</p>" },
+    { title: "Multi-point Calibration Curves", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/v9XtahZBBDQ?rel=0", text: "<h3>Curve Types</h3><p>Different assays use different calibration models: linear, logistic (4PL, 5PL), or spline. The Alinity software automatically selects and fits the appropriate curve. Review the calibration report to confirm R² value and point acceptance.</p>" },
+    { title: "Reagent Expiry & Storage", meta: "8 min · Intermediate", video: "https://www.youtube.com/embed/v9XtahZBBDQ?rel=0", text: "<h3>Storage Requirements</h3><p>Unopened reagents are stored at 2–8°C. Once loaded on the instrument, onboard refrigeration maintains stability. Check the package insert for onboard stability (typically 30–90 days). Never use expired reagents.</p>" }
+  ]},
+  5: { name: "Quality Control (QC)", lessons: [
+    { title: "QC Principles & Westgard Rules", meta: "18 min · Intermediate", video: "https://www.youtube.com/embed/5h_loRHODQQ?rel=0", text: "<h3>Westgard Multi-Rules</h3><p>Westgard rules are a set of decision criteria for determining whether an analytical run is in-control:</p><ul><li><strong>1₂s:</strong> Warning — 1 control exceeds ±2 SD</li><li><strong>1₃s:</strong> Reject — 1 control exceeds ±3 SD (random error)</li><li><strong>2₂s:</strong> Reject — 2 consecutive controls exceed same ±2 SD (systematic error)</li><li><strong>R₄s:</strong> Reject — range between two controls >4 SD</li><li><strong>4₁s:</strong> Reject — 4 consecutive controls exceed same ±1 SD</li><li><strong>10x:</strong> Reject — 10 consecutive controls on same side of mean</li></ul><div class='info-box'><strong>Key Rule:</strong> The 1₃s rule is your most important rejection criterion — never release results when this rule fires.</div>" },
+    { title: "Levey-Jennings Charts", meta: "12 min · Intermediate", video: "https://www.youtube.com/embed/5h_loRHODQQ?rel=0", text: "<h3>Reading LJ Charts</h3><p>Levey-Jennings charts plot QC values over time against ±1, ±2, and ±3 SD lines. Trends (gradual drift) and shifts (sudden jump) are visually apparent and indicate systematic error sources such as reagent degradation or instrument drift.</p>" },
+    { title: "Setting QC Ranges & Targets", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/5h_loRHODQQ?rel=0", text: "<h3>Establishing Your Lab's Ranges</h3><p>Collect at least 20 QC values over 20 days with the same reagent lot and calibrator. Calculate mean and SD. Enter these into the QC software. Do not simply copy the manufacturer's insert values — your lab must validate its own ranges.</p>" },
+    { title: "QC Failure Investigation", meta: "12 min · Intermediate", video: "https://www.youtube.com/embed/5h_loRHODQQ?rel=0", text: "<h3>Systematic QC Failure Approach</h3><ul><li>Repeat the QC with a fresh vial — rules out reconstitution error</li><li>Check reagent expiry and lot number</li><li>Review calibration status — recalibrate if needed</li><li>Inspect probes for clots or mechanical issues</li><li>Contact technical support if problem persists</li></ul><div class='info-box'><strong>Never release patient results</strong> until QC is resolved and documented.</div>" },
+    { title: "Proficiency Testing (PT)", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/5h_loRHODQQ?rel=0", text: "<h3>External Quality Assessment</h3><p>PT samples from accrediting bodies (CAP, RCPCH, NEQAS) must be tested like routine patient samples — no special handling. Results are compared to peer groups. Failed PT requires root cause analysis and corrective action documentation.</p>" }
+  ]},
+  6: { name: "Result Validation & LIS Integration", lessons: [
+    { title: "Auto-Validation Rules", meta: "12 min · Intermediate", video: "https://www.youtube.com/embed/XczPSpy-5qc?rel=0", text: "<h3>Setting Auto-Release Criteria</h3><p>Auto-validation releases results automatically when predefined criteria are met (within reference range, no HIL flags, no delta check failure, QC in control). This reduces manual review workload by up to 60–80% in many labs.</p>" },
+    { title: "Delta Checks & Critical Values", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/XczPSpy-5qc?rel=0", text: "<h3>Delta Check Logic</h3><p>A delta check compares a current result to the patient's previous result. A large unexpected change flags the result for review (possible wrong patient, wrong tube, pre-analytical error). Critical values must be reported to the clinician immediately and documented with time, person notified, and action taken.</p>" },
+    { title: "LIS Connectivity & HL7", meta: "10 min · Intermediate", video: "https://www.youtube.com/embed/XczPSpy-5qc?rel=0", text: "<h3>Bidirectional LIS Interface</h3><p>The Alinity communicates with the LIS via HL7 messaging. Orders are downloaded automatically (host query mode) and results are uploaded in real time. Work with your IT/LIS team to configure mapping tables for result codes and units.</p>" },
+    { title: "Reflex Testing Setup", meta: "8 min · Intermediate", video: "https://www.youtube.com/embed/XczPSpy-5qc?rel=0", text: "<h3>Automated Reflex Orders</h3><p>Reflex testing automatically adds a follow-up test when a primary result meets defined criteria (e.g., if TSH is low, add FT4 automatically). Configure reflex rules in the software under Test Management > Reflex Rules.</p>" }
+  ]},
+  7: { name: "Troubleshooting & Error Codes", lessons: [
+    { title: "Understanding Alarm Levels", meta: "10 min · Advanced", video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0", text: "<h3>Alarm Severity Levels</h3><p>Alinity alarms are classified into three levels:</p><ul><li><strong>Information (Blue):</strong> Advisory — no action required immediately</li><li><strong>Warning (Yellow):</strong> Attention needed — investigate soon</li><li><strong>Error (Red):</strong> Action required — results may be affected until resolved</li></ul><div class='info-box'><strong>Rule:</strong> Never dismiss a red alarm without understanding and resolving its cause.</div>" },
+    { title: "Common Chemistry Errors", meta: "15 min · Advanced", video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0", text: "<h3>Frequent Alinity c Errors</h3><ul><li><strong>E1001 — Photometer lamp failure:</strong> Replace lamp, run verification</li><li><strong>E2005 — Reagent probe short sample:</strong> Check reagent level, prime probe</li><li><strong>E3010 — ISE conditioning required:</strong> Run ISE conditioning protocol</li><li><strong>E4002 — Cuvette reaction error:</strong> Run cuvette wash, replace if needed</li></ul>" },
+    { title: "Common Immunoassay Errors", meta: "15 min · Advanced", video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0", text: "<h3>Frequent Alinity i Errors</h3><ul><li><strong>I1010 — Low RLU reading:</strong> Check CMIA luminometer, clean reading chamber</li><li><strong>I2003 — Microparticle suspension error:</strong> Mix microparticle reagent thoroughly</li><li><strong>I3007 — Conjugate delivery error:</strong> Check conjugate pack and delivery line</li></ul>" },
+    { title: "Probe & Pipette Issues", meta: "12 min · Advanced", video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0", text: "<h3>Probe Troubleshooting</h3><p>Sample and reagent probes are critical precision components. Issues include:</p><ul><li>Clot detection — fibrin clots partially blocking probe</li><li>Carryover — insufficient washing between samples</li><li>Volume inaccuracy — bent or damaged probe tip</li></ul><p>Always wear gloves when handling probes. Replace probes according to the PM schedule.</p>" },
+    { title: "Clot Detection & Recovery", meta: "10 min · Advanced", video: "https://www.youtube.com/embed/ShMvDHZVPrM?rel=0", text: "<h3>Clot Detection System</h3><p>The Alinity detects partial clots using a pressure sensor on the sample probe. When a clot is detected, the system flags the result and requires manual review. Centrifuge the sample again or recollect if clotting is extensive.</p><div class='info-box'><strong>Prevention:</strong> Ensure serum samples are fully clotted (30 min at room temperature) before centrifugation.</div>" }
+  ]},
+  8: { name: "Maintenance & Preventive Care", lessons: [
+    { title: "Daily Maintenance Tasks", meta: "14 min · Advanced", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Daily PM Checklist</h3><ul><li>Check fluid levels (system fluid, wash solution)</li><li>Empty and log waste container volumes</li><li>Inspect probes visually</li><li>Run system startup verification</li><li>Run QC and verify results before patient testing</li><li>Document all checks in the maintenance log</li></ul>" },
+    { title: "Weekly & Monthly PM", meta: "16 min · Advanced", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Scheduled Preventive Maintenance</h3><p><strong>Weekly:</strong></p><ul><li>Deep clean of sample and reagent probes</li><li>Replace cuvette wash solutions</li><li>Check and clean ISE flow cell</li></ul><p><strong>Monthly:</strong></p><ul><li>Replace sample probe (if due)</li><li>Check lamp intensity (Alinity c photometer)</li><li>Full system decontamination</li><li>Review calibration history and trending</li></ul>" },
+    { title: "Probe Cleaning & Replacement", meta: "12 min · Advanced", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Probe Maintenance Procedure</h3><p>Probes should be cleaned externally with an appropriate cleaning solution (Abbott-recommended) using lint-free wipes. Never use abrasive materials. Probe replacement intervals are defined in the maintenance schedule — document lot number and date of each replacement.</p><div class='info-box'><strong>Caution:</strong> Never bend or touch the probe tip with bare hands. Handle only by the body.</div>" },
+    { title: "Waste Management & Decontamination", meta: "10 min · Advanced", video: "https://www.youtube.com/embed/RD5DQSp6eYE?rel=0", text: "<h3>Biohazardous Waste Handling</h3><p>Liquid waste from the Alinity contains biohazardous material and chemicals. Follow your institution's biohazard waste disposal policy. Wear appropriate PPE (gloves, lab coat, eye protection) when handling waste containers. Neutralize chemical waste as required by local regulations.</p>" }
+  ]}
+};
+
+let currentModule = 1;
+let currentLesson = 0;
+const completedLessons = {};
+
+function openModule(mod) {
+  currentModule = mod;
+  currentLesson = 0;
+  renderLesson();
+  document.getElementById('lesson-viewer').classList.add('active');
+  document.getElementById('lesson-viewer').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openLesson(e, mod, lesson) {
+  e.stopPropagation();
+  currentModule = mod;
+  currentLesson = lesson;
+  renderLesson();
+  document.getElementById('lesson-viewer').classList.add('active');
+  document.getElementById('lesson-viewer').scrollIntoView({ behavior: 'smooth' });
+}
+
+function renderLesson() {
+  const mod = modules[currentModule];
+  const lesson = mod.lessons[currentLesson];
+
+  document.getElementById('viewer-module-name').textContent = `Module ${currentModule}`;
+  document.getElementById('viewer-lesson-name').textContent = lesson.title;
+  document.getElementById('lesson-title').textContent = lesson.title;
+  document.getElementById('lesson-meta').textContent = lesson.meta;
+  document.getElementById('lesson-iframe').src = lesson.video;
+  document.getElementById('lesson-text').innerHTML = lesson.text;
+
+  // Sidebar
+  const sidebar = document.getElementById('sidebar-items');
+  sidebar.innerHTML = '';
+  mod.lessons.forEach((l, i) => {
+    const div = document.createElement('div');
+    div.className = 'sidebar-item' + (i === currentLesson ? ' active' : '');
+    div.innerHTML = `<span class="s-dot"></span>${l.title}`;
+    div.onclick = () => { currentLesson = i; renderLesson(); };
+    sidebar.appendChild(div);
+  });
+
+  // Mark progress
+  if (!completedLessons[currentModule]) completedLessons[currentModule] = new Set();
+  completedLessons[currentModule].add(currentLesson);
+  const pct = (completedLessons[currentModule].size / mod.lessons.length) * 100;
+  const bar = document.getElementById(`prog${currentModule}`);
+  if (bar) bar.style.width = pct + '%';
+}
+
+function nextLesson() {
+  const mod = modules[currentModule];
+  if (currentLesson < mod.lessons.length - 1) {
+    currentLesson++;
+    renderLesson();
+    document.getElementById('lesson-viewer').scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function prevLesson() {
+  if (currentLesson > 0) {
+    currentLesson--;
+    renderLesson();
+    document.getElementById('lesson-viewer').scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// ─── QUIZ ───
+const questions = [
+  { q: "What technology does the Alinity i use for immunoassay detection?", opts: ["Photometry","Turbidimetry","CMIA (Chemiluminescent Microparticle Immunoassay)","PCR amplification"], ans: 2 },
+  { q: "Which Westgard rule indicates SYSTEMATIC error when 2 consecutive controls exceed the same ±2 SD limit?", opts: ["1₃s rule","R₄s rule","2₂s rule","10x rule"], ans: 2 },
+  { q: "Before releasing results after a QC failure, the first action should be:", opts: ["Call the clinician","Repeat the QC with a fresh vial","Recalibrate immediately","Ignore and continue testing"], ans: 1 },
+  { q: "HIL indices stand for:", opts: ["Hemolysis, Interference, Lipemia","Hemolysis, Icterus, Lipemia","High, Intermediate, Low","Hemoglobin, Immunoglobulin, Lipase"], ans: 1 },
+  { q: "Which color indicates an Error-level alarm on the Alinity system requiring immediate action?", opts: ["Blue","Yellow","Green","Red"], ans: 3 },
+  { q: "Calibration should be repeated when:", opts: ["Every Monday regardless","A new reagent lot is introduced","After every 50 samples","Only when the lab director requests it"], ans: 1 }
+];
+
+let qIndex = 0, answered = false;
+
+function renderQuestion() {
+  const q = questions[qIndex];
+  document.getElementById('quiz-q').textContent = q.q;
+  document.getElementById('quiz-prog').textContent = `Question ${qIndex + 1} of ${questions.length}`;
+  document.getElementById('quiz-fb').style.display = 'none';
+  answered = false;
+  const opts = document.getElementById('quiz-opts');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const d = document.createElement('div');
+    d.className = 'quiz-opt';
+    d.innerHTML = `<span class="opt-letter">${'ABCD'[i]}</span>${o}`;
+    d.onclick = () => checkAnswer(i, d, q.ans);
+    opts.appendChild(d);
+  });
+}
+
+function checkAnswer(i, el, correct) {
+  if (answered) return;
+  answered = true;
+  const allOpts = document.querySelectorAll('.quiz-opt');
+  allOpts[correct].classList.add('correct');
+  if (i !== correct) el.classList.add('wrong');
+  const fb = document.getElementById('quiz-fb');
+  fb.style.display = 'block';
+  fb.textContent = i === correct ? '✅ Correct! Well done.' : `❌ Incorrect. The correct answer was: ${questions[qIndex].opts[correct]}`;
+}
+
+function nextQuestion() {
+  qIndex = (qIndex + 1) % questions.length;
+  renderQuestion();
+}
+
+renderQuestion();
+
+// ─── SCROLL ANIMATIONS ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
